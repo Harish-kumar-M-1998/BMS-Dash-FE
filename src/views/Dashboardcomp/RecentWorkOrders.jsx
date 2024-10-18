@@ -23,9 +23,9 @@ const RecentWorkOrders = () => {
     );
 
     return (
-        <div className="p-3 bg-gray-50 rounded-lg shadow-md max-w-3xl mx-auto">
+        <div className="p-3 bg-gray-50 rounded-lg shadow-md max-w-3xl mx-auto" style={{ height: '400px' }}>
             {/* Heading */}
-            <h2 className="text-xl font-semibold mb-3 text-center">Recent Work Orders</h2>
+            <h2 className="text-lg font-semibold mb-4 text-gray-700">Recent Work Orders</h2>
             
             {/* Search Input */}
             <input

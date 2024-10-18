@@ -3,7 +3,11 @@ import { useOutletContext } from "react-router-dom";
 import Summary from "./Summary";
 import ActionItems from "./ActionItems";
 import RecentWorkOrders from "./RecentWorkOrders";
-// Import other components as needed
+import ManagementReports from "./ManagementReports";
+import ActivityFeed from "./ActivityFeed";
+import WeatherInfo from "./WeatherInfo";
+import CasesGraph from "./CasesGraph";
+import LastWorkOrder from "./LastWorkOrder";
 
 export default function Dashboard() {
     const { setheaderDetails } = useOutletContext();
@@ -17,30 +21,39 @@ export default function Dashboard() {
 
     return (
         <div className="p-4 space-y-4">
-        <Summary />
+
+            <Summary />
+
+            {/* Main Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* First row with three components */}
-                <div className="bg-white rounded-lg shadow-md">
-                <ActionItems />
+                {/* First Row */}
+                <div className="bg-white rounded-lg">
+                    <ActionItems />
                 </div>
-                <div className="bg-white rounded-lg shadow-md">
-                    <RecentWorkOrders />
+                <div className="bg-white rounded-lg">
+                   <LastWorkOrder />
                 </div>
-                {/* Add more components as needed */}
-                <div className="bg-white rounded-lg shadow-md">
-                    {/* Placeholder for Component 3 */}
+                <div className="bg-white rounded-lg flex flex-col gap-4 bg-transparent" style={{ height: '400px' }}>
+                    {/* Two Components in the Third Column */}
+                    <div className="bg-gray-100 rounded-lg bg-transparent">
+                        <WeatherInfo />
+                    </div>
+                    <div className="bg-gray-100 rounded-lg bg-transparent">
+                        <CasesGraph />
+                    </div>
                 </div>
             </div>
+
+            {/* Second Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Second row with three components */}
-                <div className="bg-white rounded-lg shadow-md">
-                <RecentWorkOrders />
+                <div className="bg-white rounded-lg">
+                    <RecentWorkOrders />
                 </div>
-                <div className="bg-white rounded-lg shadow-md">
-                    {/* Placeholder for Component 5 */}
+                <div className="bg-white rounded-lg">
+                    <ManagementReports />
                 </div>
-                <div className="bg-white rounded-lg shadow-md">
-                    {/* Placeholder for Component 6 */}
+                <div className="bg-white rounded-lg">
+                    <ActivityFeed />
                 </div>
             </div>
         </div>

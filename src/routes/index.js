@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Dashboard from "../views//Dashboardcomp/Dashboard";
 import HomeLayout from "../layout/homeLayout";
+import NotFound from "../utils/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>Page Not Found</h1>,
+    element: <NotFound />,
   },
 ]);
