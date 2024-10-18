@@ -8,7 +8,7 @@ export default function WeatherInfo() {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/weather");
+        const response = await axios.get("https://bms-dash-be.onrender.com/api/weather");
         setWeather(response.data);
       } catch (error) {
         console.error("Error fetching weather data:", error);

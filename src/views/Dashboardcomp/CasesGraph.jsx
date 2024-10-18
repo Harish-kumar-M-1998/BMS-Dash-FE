@@ -11,7 +11,7 @@ const CasesGraph = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/cases");
+        const response = await axios.get("https://bms-dash-be.onrender.com/api/cases");
         const caseData = response.data;
 
         // Prepare data for the chart

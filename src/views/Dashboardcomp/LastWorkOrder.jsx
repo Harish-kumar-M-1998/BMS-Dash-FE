@@ -9,7 +9,7 @@ const LastWorkOrder = () => {
     useEffect(() => {
         const fetchWorkOrders = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/work-orders");
+                const response = await axios.get("https://bms-dash-be.onrender.com/api/work-orders");
                 setWorkOrders(response.data);
             } catch (error) {
                 console.error("Error fetching work orders:", error);
@@ -25,7 +25,7 @@ const LastWorkOrder = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/work-orders/${id}`);
+            await axios.delete(`https://bms-dash-be.onrender.com/api/work-orders/${id}`);
             setWorkOrders(workOrders.filter(order => order._id !== id)); // Update the state to remove the deleted order
         } catch (error) {
             console.error("Error deleting work order:", error);

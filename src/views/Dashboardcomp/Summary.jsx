@@ -10,7 +10,7 @@ export default function Summary() {
   useEffect(() => {
     const fetchSummaryData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/summary");
+        const response = await axios.get("https://bms-dash-be.onrender.com/api/summary");
         setSummaryData(response.data);
       } catch (err) {
         setError("Error fetching summary data");

@@ -10,7 +10,7 @@ const ActionItems = () => {
     useEffect(() => {
         const fetchActionItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/action-items');
+                const response = await axios.get('https://bms-dash-be.onrender.com/api/action-items');
                 setActionItems(response.data);
             } catch (err) {
                 setError(err.message);

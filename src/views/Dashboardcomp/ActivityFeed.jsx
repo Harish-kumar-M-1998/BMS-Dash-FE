@@ -7,7 +7,7 @@ export default function ActivityFeed() {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/activities");
+        const response = await axios.get("https://bms-dash-be.onrender.com/api/activities");
         setActivities(response.data);
       } catch (error) {
         console.error("Error fetching activities:", error);

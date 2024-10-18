@@ -8,7 +8,7 @@ const RecentWorkOrders = () => {
     useEffect(() => {
         const fetchWorkOrders = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/work-orders");
+                const response = await axios.get("https://bms-dash-be.onrender.com/api/work-orders");
                 setWorkOrders(response.data);
             } catch (error) {
                 console.error("Error fetching work orders:", error);
