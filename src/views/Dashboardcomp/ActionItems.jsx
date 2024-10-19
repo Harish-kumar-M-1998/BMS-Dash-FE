@@ -26,9 +26,9 @@ const ActionItems = () => {
     if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
     return (
-        <div className="bg-[#6E8EFF] rounded-lg bg-violet-50 shadow-md p-4 h-full flex flex-col justify-between">
+        <div className="bg-[#6E8EFF] rounded-lg bg-[#6E8EFF] shadow-md p-4 h-full flex flex-col justify-between">
             <h2 className="text-xl font-semibold mb-4">Action Items</h2>
-            <div className="flex-1 overflow-auto"> {/* This ensures the list grows and fits */}
+            <div className="flex-1 overflow-auto"> 
                 {actionItems.length > 0 ? (
                     <div className="bg-[#6E8EFF] grid grid-cols-1 gap-4">
                         {actionItems.map((item) => (

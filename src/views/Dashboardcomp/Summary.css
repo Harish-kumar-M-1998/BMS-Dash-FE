@@ -1,0 +1,10 @@
+@media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    .summary-item {
+      padding: 1rem; /* Adjust padding for larger screens */
+    }
+  }
+  .summary-container {
+    max-width: 800px; /* Adjust as needed */
+    margin: auto; /* Center the component */
+  }
+  

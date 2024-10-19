@@ -14,12 +14,12 @@ export default function HomeLayout() {
     const [isSidebarOpen, setSidebarOpen] = useState(false); // State for sidebar toggle
 
     return (
-        <div className="flex h-screen">
+        <div className="flex flex-col lg:flex-row h-screen">
             {/* Sidebar */}
             <div
-                className={`fixed inset-y-0 left-0 transform bg-white shadow-md transition-transform duration-300 w-64 ${
+                className={`fixed inset-y-0 left-0 bg-white shadow-md transition-transform duration-300 transform lg:static lg:translate-x-0 w-64 z-20 ${
                     isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                } lg:translate-x-0 lg:w-64 lg:static z-20`}
+                }`}
             >
                 <div className="p-4">
                     <img
@@ -53,10 +53,14 @@ export default function HomeLayout() {
             </div>
 
             {/* Main content area */}
-            <div className={`flex-1 flex flex-col transition-margin duration-300 ${isSidebarOpen ? "ml-64" : ""}`}>
+            <div className="flex-1 flex flex-col">
                 {/* Header */}
-                <Header headerDetails={headerDetails} setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} />
-                
+                <Header
+                    headerDetails={headerDetails}
+                    setSidebarOpen={setSidebarOpen}
+                    isSidebarOpen={isSidebarOpen}
+                />
+
                 {/* Content Wrapper */}
                 <div className="flex-1 p-4 overflow-y-auto">
                     <Outlet context={{ setheaderDetails }} />
@@ -76,7 +80,7 @@ export default function HomeLayout() {
 
 const Header = ({ headerDetails, setSidebarOpen, isSidebarOpen }) => {
     return (
-        <div className="flex justify-between items-center bg-gray-50 shadow-sm p-4 h-20 lg:h-20 lg:sticky lg:top-0 z-10">
+        <div className="flex justify-between items-center bg-gray-50 shadow-sm p-4 h-16 lg:h-20 sticky top-0 z-10 w-full">
             <div className="flex items-center">
                 {/* Hamburger Icon for mobile */}
                 <button
@@ -86,39 +90,42 @@ const Header = ({ headerDetails, setSidebarOpen, isSidebarOpen }) => {
                 >
                     <FaBars size={24} />
                 </button>
-                <div>
-                    <h1 className="text-2xl font-semibold">{headerDetails?.title ?? ""}</h1>
-                    <p className="text-gray-500">{headerDetails?.subTitle ?? ""}</p>
+                <div className="text-left">
+                    <h1 className="text-lg lg:text-2xl font-semibold">{headerDetails?.title ?? ""}</h1>
+                    <p className="text-gray-500 text-sm lg:text-base">{headerDetails?.subTitle ?? ""}</p>
                 </div>
             </div>
             <div className="flex items-center space-x-4">
-                <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
-                    <FaBuilding
-                        className="text-gray-400 group-hover:text-white"
-                        size={24}
-                        title="Building"
-                    />
-                </div>
-                <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
-                    <FaUsers
-                        className="text-gray-400 group-hover:text-white"
-                        size={24}
-                        title="Community"
-                    />
-                </div>
-                <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
-                    <FaCommentDots
-                        className="text-gray-400 group-hover:text-white"
-                        size={24}
-                        title="Messages"
-                    />
-                </div>
-                <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
-                    <FaChartBar
-                        className="text-gray-400 group-hover:text-white"
-                        size={24}
-                        title="Reports"
-                    />
+                {/* These icons will be hidden on smaller screens */}
+                <div className="hidden sm:flex items-center space-x-4">
+                    <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
+                        <FaBuilding
+                            className="text-gray-400 group-hover:text-white"
+                            size={24}
+                            title="Building"
+                        />
+                    </div>
+                    <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
+                        <FaUsers
+                            className="text-gray-400 group-hover:text-white"
+                            size={24}
+                            title="Community"
+                        />
+                    </div>
+                    <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
+                        <FaCommentDots
+                            className="text-gray-400 group-hover:text-white"
+                            size={24}
+                            title="Messages"
+                        />
+                    </div>
+                    <div className="group cursor-pointer p-2 rounded-full hover:bg-violet-500">
+                        <FaChartBar
+                            className="text-gray-400 group-hover:text-white"
+                            size={24}
+                            title="Reports"
+                        />
+                    </div>
                 </div>
 
                 <div className="flex items-center space-x-2">
@@ -138,3 +145,4 @@ const Header = ({ headerDetails, setSidebarOpen, isSidebarOpen }) => {
         </div>
     );
 };
+
