@@ -36,8 +36,8 @@ const RecentWorkOrders = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
             
-            {/* Work Orders List */}
-            <ul className="space-y-2">
+            {/* Work Orders List with Scroll */}
+            <ul className="space-y-2 overflow-y-auto" style={{ maxHeight: '300px' }}>
                 {filteredWorkOrders.length > 0 ? (
                     filteredWorkOrders.map((order) => (
                         <li
